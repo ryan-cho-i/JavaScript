@@ -9,18 +9,58 @@
   </head>
   <body>
     <div class="alert-box" id="alert">
-      Alert
-      <button onclick="alertClose()">Close</button>
+      <p id="title"></p>
+      <button onclick="openClose('none')">Close</button>
     </div>
-    <button onclick="alertOpen()">TimButton</button>
+
+    <button onclick="alert('ID')">ID</button>
+    <button id="PW">PassWord</button>
 
     <script>
-      function alertOpen() {
-        document.getElementById("alert").style.display = "block";
+      document
+        .getElementById("PW")
+        .addEventListener("click", alert("Password"));
+
+      function alert(Input) {
+        document.getElementById("title").innerHTML = Input;
+        openClose("block");
       }
-      function alertClose() {
-        document.getElementById("alert").style.display = "none";
+
+      function openClose(Input) {
+        document.getElementById("alert").style.display = Input;
       }
     </script>
   </body>
 </html>
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="alert-box" id="alert">
+      <p id="title"></p>
+      <button id="close">Close</button>
+    </div>
+
+    <button onclick="alert('ID')">ID</button>
+    <button id="Password">PassWord</button>
+
+    <script>
+      function alert(Input) {
+        document.getElementById("title").innerHTML = Input;
+        openClose("block");
+      }
+
+      function openClose(Input) {
+        document.getElementById("alert").style.display = Input;
+      }
+    </script>
+  </body>
+</html> -->
