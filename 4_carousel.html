@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div style="overflow: hidden">
+      <div class="slide-container">
+        <div class="slide-box">
+          <img src="car1.png" />
+        </div>
+        <div class="slide-box">
+          <img src="car2.png" />
+        </div>
+        <div class="slide-box">
+          <img src="car3.png" />
+        </div>
+      </div>
+    </div>
+
+    <button class="slide-1">1</button>
+    <button class="slide-2">2</button>
+    <button class="slide-3">3</button>
+    <button class="pre">Pre</button>
+    <button class="next">Next</button>
+
+    <script>
+      document.querySelector(".slide-1").addEventListener("click", function () {
+        document.querySelector(".slide-container").style.transform =
+          "translateX(0vw)";
+        console.log(document.querySelector(".slide-container").style.transform);
+      });
+
+      document.querySelector(".slide-2").addEventListener("click", function () {
+        document.querySelector(".slide-container").style.transform =
+          "translateX(-100vw)";
+        console.log(document.querySelector(".slide-container").style.transform);
+      });
+
+      document.querySelector(".slide-3").addEventListener("click", function () {
+        document.querySelector(".slide-container").style.transform =
+          "translateX(-200vw)";
+        console.log(document.querySelector(".slide-container").style.transform);
+      });
+
+      document.querySelector(".pre").addEventListener("click", function () {
+        if (
+          document.querySelector(".slide-container").style.transform ==
+          "translateX(0vw)"
+        ) {
+          document.querySelector(".slide-container").style.transform =
+            "translateX(-200vw)";
+        } else if (
+          document.querySelector(".slide-container").style.transform ==
+          "translateX(-100vw)"
+        ) {
+          document.querySelector(".slide-container").style.transform =
+            "translateX(0vw)";
+        } else if (
+          document.querySelector(".slide-container").style.transform ==
+          "translateX(-200vw)"
+        ) {
+          document.querySelector(".slide-container").style.transform =
+            "translateX(-100vw)";
+        }
+      });
+
+      document.querySelector(".next").addEventListener("click", function () {
+        if (
+          document.querySelector(".slide-container").style.transform ==
+          "translateX(0vw)"
+        ) {
+          document.querySelector(".slide-container").style.transform =
+            "translateX(-100vw)";
+        } else if (
+          document.querySelector(".slide-container").style.transform ==
+          "translateX(-100vw)"
+        ) {
+          document.querySelector(".slide-container").style.transform =
+            "translateX(-200vw)";
+        } else if (
+          document.querySelector(".slide-container").style.transform ==
+          "translateX(-200vw)"
+        ) {
+          document.querySelector(".slide-container").style.transform =
+            "translateX(0vw)";
+        }
+      });
+    </script>
+  </body>
+</html>
