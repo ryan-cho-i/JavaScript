@@ -16,16 +16,28 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <nav class="navbar navbar-light bg-light">
-      <div class="container-fluid">
-        <span class="navbar-brand">Navbar</span>
-        <button class="navbar-toggler" type="button">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    
+    <div class="container mt-5">
+      <ul class="list">
+        <li class="tab-button orange" data-id="0">Products</li>
+        <li class="tab-button" data-id="1">Information</li>
+        <li class="tab-button" data-id="2">Shipping</li>
+      </ul>
+      <div class="tab-content show">
+        <p>상품설명입니다. Product</p>
       </div>
-    </nav>
+      <div class="tab-content">
+        <p>스펙설명입니다. Information</p>
+      </div>
+      <div class="tab-content">
+        <p>배송정보입니다. Shipping</p>
+      </div>
+    </div>
 
-    <div style="height: 2000px"></div>
+     
+
+
+
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -33,8 +45,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <script>
-      window.addEventListener("scroll", function () {});
-    </script>
+    <script src="5.js"></script>
   </body>
 </html>

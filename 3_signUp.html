@@ -16,6 +16,20 @@
     <div class="black-bg">
       <div class="white-bg">
         <form>
+          <div>Terms of Service</div>
+
+          <div
+            class="lorem form-control"
+            style="height: 80px; overflow-y: scroll"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae
+            voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa
+            itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi
+            quae consectetur praesentium exercitationem.
+          </div>
+
+          <button class="btn btn-warning" id="consent">Consent</button>
+
           <div class="form-group">
             <label>ID</label>
             <input type="text" class="form-control" name="id" id="email" />
@@ -31,13 +45,15 @@
             <input type="password" class="form-control" name="pw" id="cpw" />
           </div>
 
-          <button type="submit" class="btn btn-primary" id="send">완료</button>
-          <button type="button" class="btn btn-danger" id="close">닫기</button>
+          <button type="submit" class="btn btn-primary" id="send">
+            Complete
+          </button>
+          <button type="button" class="btn btn-danger" id="close">Close</button>
         </form>
       </div>
     </div>
 
-    <button id="login">SignUp</button>
+    <button id="signup">SignUp</button>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -53,16 +69,42 @@
     ></script>
 
     <script>
-      $("#login").on("click", function () {
+      $("#signup").on("click", function () {
         $(".black-bg").addClass("show-modal");
       });
 
-      $("#close").on("click", function () {
-        $(".black-bg").removeClass("show-modal");
+      var Consent = false;
+      var Read = false;
+
+      document.querySelector(".lorem").addEventListener("scroll", function () {
+        if (
+          document.querySelector(".lorem").clientHeight +
+            document.querySelector(".lorem").scrollTop +
+            10 >=
+          document.querySelector(".lorem").scrollHeight
+        ) {
+          Read = true;
+        }
       });
 
+      document
+        .querySelector("#consent")
+        .addEventListener("click", function (event) {
+          if (Read == true) {
+            Consent = true;
+            alert("Agree");
+            e.preventDefault();
+          } else {
+            alert("Read the terms of service");
+            e.preventDefault();
+          }
+        });
+
       $("#send").on("click", function (e) {
-        if (document.getElementById("email").value == "") {
+        if (Read == false) {
+          alert("Please click the consent button");
+          e.preventDefault();
+        } else if (document.getElementById("email").value == "") {
           alert("Please enter your ID");
           e.preventDefault();
         } else if (
@@ -89,6 +131,10 @@
           alert("Password confirmation doesn't match Password");
           e.preventDefault();
         }
+      });
+
+      $("#close").on("click", function () {
+        $(".black-bg").removeClass("show-modal");
       });
     </script>
   </body>
